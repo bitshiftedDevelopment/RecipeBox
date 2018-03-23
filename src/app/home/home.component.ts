@@ -9,7 +9,7 @@ import { Details } from '../card-person/details';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private sidenav: SidenavService) { }
+  constructor(public sidenav: SidenavService) { }
   title='My-App';
 
   sidenavOpen=false;
