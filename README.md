@@ -1,4 +1,6 @@
 # RecipeBox
+<img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=master" alt="build:started">
+
 Digital kitchen assistant
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
