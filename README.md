@@ -1,30 +1,20 @@
 # RecipeBox
-<img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=master" alt="build:started">
+<a href="#" id="status-image-popup" title="Latest push build on auth branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-767="767">
+  <img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=auth" alt="build:passed">
+</a>
 
-Digital kitchen assistant
+<em>Digital kitchen assistant</em>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+## Auth branch
+Contains everything needed for firebase authentication
 
-## Development server
+#### Implemented features
+- Google login
+- Stores user data in Firestore database
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Planned features
+- Custom email/password login
+- Facebook login
+- Github login
+- Twitter login
+- Phone login

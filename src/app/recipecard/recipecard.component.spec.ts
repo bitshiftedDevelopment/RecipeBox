@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TopnavComponent } from './topnav.component';
+import { RecipecardComponent } from './recipecard.component';
 
-describe('TopnavComponent', () => {
-  let component: TopnavComponent;
-  let fixture: ComponentFixture<TopnavComponent>;
+describe('RecipecardComponent', () => {
+  let component: RecipecardComponent;
+  let fixture: ComponentFixture<RecipecardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TopnavComponent]
+      declarations: [ RecipecardComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TopnavComponent);
+    fixture = TestBed.createComponent(RecipecardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
