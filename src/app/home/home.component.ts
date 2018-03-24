@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { SidenavService } from '../sidenav.service';
-import { AppComponent } from '../app.component';
 import { Details } from '../card-person/details';
 
 @Component({
@@ -11,7 +10,6 @@ import { Details } from '../card-person/details';
 export class HomeComponent implements OnInit {
   constructor(private sidenav: SidenavService) { }
   title='My-App';
-
   sidenavOpen=false;
   toggleSidenav(){
     this.sidenavOpen=!this.sidenavOpen;

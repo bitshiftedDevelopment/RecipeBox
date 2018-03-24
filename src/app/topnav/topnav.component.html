@@ -41,10 +41,21 @@
         <mat-icon>security</mat-icon>
         <span>Security</span>
       </button>
-      <button mat-menu-item disabled>
-        <mat-icon>notifications</mat-icon>
-        <span>Notifications</span>
-      </button>
+
+      <div *ngIf="loggedInUser != 'none'; else loggedOut">
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </div>
+
+      <ng-template #loggedOut>
+        <button mat-menu-item disabled>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </ng-template>
+
     </mat-menu>
   </mat-toolbar>
 </div>
