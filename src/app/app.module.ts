@@ -18,6 +18,8 @@ import { CardPersonComponent } from './card-person/card-person.component';
 import { AuthModule } from './auth/auth.module';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { UserDisplayComponent } from './user-display/user-display.component';
+import { RecipecardComponent } from './recipecard/recipecard.component';
+import { RecipeBrowserComponent } from './recipe-browser/recipe-browser.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { UserDisplayComponent } from './user-display/user-display.component';
     TopnavComponent,
     CardPersonComponent,
     UserProfileComponent,
-    UserDisplayComponent
+    UserDisplayComponent,
+    RecipecardComponent,
+    RecipeBrowserComponent
   ],
   imports: [
     BrowserModule,
