@@ -1,5 +1,5 @@
 # RecipeBox
-<img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=master" alt="build:started">
+<img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=auth" alt="build:started">
 
 Digital kitchen assistant
 
