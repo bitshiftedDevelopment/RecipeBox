@@ -12,5 +12,4 @@ export class RecipeBrowserComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
