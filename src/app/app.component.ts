@@ -14,7 +14,6 @@ import { Details } from './card-person/details'
 })
 export class AppComponent implements OnInit {
   title = 'My-App';
-  events = [];
   loggedInUser = 'none'; // set to none with no user logged in, otherwise the display name of the user
 
   @ViewChild('sidenav') public sidenav: MatSidenav;
