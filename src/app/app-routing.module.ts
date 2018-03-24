@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   },
   {
      path: 'home', component: HomeComponent
+  },
+  {
+    path: 'profile-demo',
+    component: UserProfileComponent
   }
   /*{
     path: '**',
@@ -19,6 +24,7 @@ const routes: Routes = [
   /*{
      path: 'login', component: LoginComponent
   },*/
+  // { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] } // protected by login
 ];
 
 @NgModule({
