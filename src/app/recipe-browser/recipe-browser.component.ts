@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as mockdata from '../../assets/demorecipe.json';
+import * as mockdata from '@asset/demorecipe.json';
 
 @Component({
   selector: 'recipe-browser',
