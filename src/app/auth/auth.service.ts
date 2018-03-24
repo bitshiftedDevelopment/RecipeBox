@@ -19,12 +19,9 @@ interface User {
   favoriteColor?: string;
 }
 
-
 @Injectable()
 export class AuthService {
-
   user: Observable<User>;
-
   /*
    * The constructor will set the Observable. First it receives the current Firebase auth state.
    * If present, it will hit up Firestore for the user’s saved custom data.
@@ -33,15 +30,14 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
     //// Get auth data, then get firestore user document || null
     this.user = this.afAuth.authState
-            .switchMap(user => {
-              if (user) {
-                return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-              } else {
-                return Observable.of(null)
-              }
-            })
+      .switchMap(user => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges()
+        } else {
+          return Observable.of(null)
+        }
+      })
   }
-
 
   /* googleLogin()
    * This method triggers the popup window that authenticates the user with their Google account.
@@ -69,23 +65,21 @@ export class AuthService {
    */
   private updateUserData(user) {
     // Sets user data to firestore on login
-
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 
     const data: User = { // any additional data to be saved must be added here and to the class above
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      photoURL: user.photoURL,
+      favoriteColor: user.favoriteColor || 'unset'
     }
-
     return userRef.set(data, { merge: true })
-
   }
 
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-        this.router.navigate(['/']); //TODO change route once home component is ready
+      this.router.navigate(['/home']); //TODO change route once home component is ready
     });
   }
 }

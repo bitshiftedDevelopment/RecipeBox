@@ -17,6 +17,7 @@ import { CardPersonComponent } from './card-person/card-person.component';
 // indev
 import { AuthModule } from './auth/auth.module';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
+import { UserDisplayComponent } from './user-display/user-display.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
     HomeComponent,
     TopnavComponent,
     CardPersonComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    UserDisplayComponent
   ],
   imports: [
     BrowserModule,

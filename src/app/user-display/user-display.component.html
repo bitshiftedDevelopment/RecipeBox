@@ -1,0 +1,23 @@
+<div *ngIf="auth.user | async; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <span class="usernameDisplay">
+    GUEST
+  </span>
+  <mat-icon class="profileIcon">account_circle</mat-icon>
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.user | async as user">
+    <span class="usernameDisplay">
+        {{user.displayName}}
+      </span>
+    <img [src]="user.photoURL" class="profileIcon">
+  </div>
+</ng-template>

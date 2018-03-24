@@ -1,5 +1,5 @@
 <div class="mat-app-background">
-  <mat-toolbar >
+  <mat-toolbar>
     <!-- Sidenav toggle button -->
     <i class="material-icons" style="color:grey" (click)="toggleSidenav()">
       menu
@@ -7,26 +7,16 @@
     <span class="branding">
       {{ title | uppercase }}
     </span>
-    <a href="./home">
+    <a href="/">
+      <!-- Might need second routing module for topnav -->
       <img src="./favicon.ico" alt="logo" class="brandingLogo">
     </a>
     <!-- This fills the remaining space of the current row -->
-    <span class="example-fill-remaining-space"></span>
+    <span class="spacer"></span>
 
     <!--<span>Right Aligned Text</span>-->
 
-    <!-- Logged in username and profile icon, only if a user is logged in -->
-    <div class="navProfileDisplay" *ngIf="loggedInUser != 'none'">
-      <span class="usernameDisplay">
-        {{loggedInUser}}
-      </span>
-      <mat-icon>account_circle</mat-icon>
-    </div>
-
-    <div class="" *ngIf="loggedInUser == 'none'">
-      <!--<a href="/login">Login</a>-->
-      <a mat-button routerLink="./login">Login</a>
-    </div>
+    <user-display></user-display>
 
     <!-- Popup menu -->
     <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -42,15 +32,19 @@
         <span>Security</span>
       </button>
 
-      <div *ngIf="loggedInUser != 'none'; else loggedOut">
-        <button mat-menu-item>
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Logout</span>
-        </button>
+      <div *ngIf="auth.user | async; then authenticated else guest">
+        <!-- template will replace this div -->
       </div>
-
-      <ng-template #loggedOut>
-        <button mat-menu-item disabled>
+      <!-- User NOT logged in -->
+      <ng-template #guest>
+        <button mat-menu-item (click)="auth.googleLogin()">
+          <mat-icon>person_outline</mat-icon>
+          <span>Login</span>
+        </button>
+      </ng-template>
+      <!-- User logged in -->
+      <ng-template #authenticated>
+        <button mat-menu-item (click)="auth.signOut()">
           <mat-icon>exit_to_app</mat-icon>
           <span>Logout</span>
         </button>
