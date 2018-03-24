@@ -13,11 +13,11 @@ import { Details } from './card-person/details'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'My-App';
+  title = 'RecipeBox';
   loggedInUser = 'none'; // set to none with no user logged in, otherwise the display name of the user
 
   @ViewChild('sidenav') public sidenav: MatSidenav;
-  public constructor(private sidenavService:SidenavService){}
+  public constructor(private sidenavService: SidenavService) { }
 
   public ngOnInit(): void {
     // Store sidenav to service

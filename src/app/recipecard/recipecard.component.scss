@@ -17,3 +17,31 @@
   justify-content: space-between;
   align-items    : center;
 }
+
+.nextBtn {
+  background-color: rgba(10,10,10,0.2);
+}
+
+.prvBtn {
+  background-color: rgba(10,10,10,0.2);
+}
+
+.spacer {
+  /* This fills the remaining space, by using flexbox.
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.longDesc {}
+@media all and (min-width:480px) {
+  .longDesc {
+    display: block;
+  }
+  //.phoneContent {display: none;}
+}
+@media all and (max-width:479px) {
+  .longDesc {
+    display: none;
+  }
+  //.phoneContent {display: block;}
+}

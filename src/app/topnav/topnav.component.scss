@@ -1,13 +1,29 @@
 .branding {
-  padding-left: 1em;
+  padding-left  : 1em;
+  vertical-align: middle;
 }
 
 .brandingLogo {
-  padding-left: 0.5em;
+  // width         : auto;
+  // height        : auto;
+  padding-left  : 0.5em;
+  vertical-align: middle;
 }
 
 .spacer {
   /* This fills the remaining space, by using flexbox.
      Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
+}
+@media all and (min-width:480px) {
+  .branding {
+    display: block;
+  }
+  //.phoneContent {display: none;}
+}
+@media all and (max-width:479px) {
+  .branding {
+    display: none;
+  }
+  //.phoneContent {display: block;}
 }

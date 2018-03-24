@@ -13,10 +13,14 @@
       <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Utensils:
+            Utensils
           </mat-panel-title>
           <mat-panel-description>
-            Required utensils for this recipe
+            <!-- should be using flex to hide long description text on mobile -->
+            <div class="longDesc">
+              Needed to make this dish
+            </div>
+            <div class="spacer"></div>
             <mat-icon>local_dining</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
@@ -26,7 +30,7 @@
         </mat-list>
 
         <mat-action-row>
-          <button mat-button color="primary" (click)="nextStep()">Next</button>
+          <button mat-button color="primary" class="nextBtn" (click)="nextStep()">Next</button>
         </mat-action-row>
       </mat-expansion-panel>
 
@@ -34,10 +38,13 @@
       <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Ingredients:
+            Ingredients
           </mat-panel-title>
           <mat-panel-description>
-            Ingredients needed for this recipe
+            <div class="longDesc">
+              Grocery list
+            </div>
+            <div class="spacer"></div>
             <mat-icon>local_pizza</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
@@ -45,13 +52,13 @@
         <mat-list class="ingredientList" *ngFor="let ingredient of recipe.ingredients">
           <li>
             <!-- Needs more formatting, ugly as sin -->
-            {{ ingredient.amount }} {{ ingredient.measurement | lowercase }} {{ ingredient.name }}
+            {{ ingredient.amount }} {{ ingredient.measurement | lowercase }} {{ ingredient.name | lowercase }}
           </li>
         </mat-list>
 
         <mat-action-row>
-          <button mat-button color="warn" (click)="prevStep()">Previous</button>
-          <button mat-button color="primary" (click)="nextStep()">Next</button>
+          <button mat-button class="prvBtn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" class="nextBtn" (click)="nextStep()">Next</button>
         </mat-action-row>
       </mat-expansion-panel>
 
@@ -59,10 +66,13 @@
       <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Steps:
+            Steps
           </mat-panel-title>
           <mat-panel-description>
-            Recipe instructions
+            <div class="longDesc">
+              How to make {{ recipe.title }}
+            </div>
+            <div class="spacer"></div>
             <mat-icon>format_list_numbered</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
@@ -74,8 +84,8 @@
         </mat-list>
 
         <mat-action-row>
-          <button mat-button color="warn" (click)="prevStep()">Previous</button>
-          <button mat-button color="primary" (click)="nextStep()">End</button>
+          <button mat-button class="prvBtn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" class="nextBtn" (click)="nextStep()">End</button>
         </mat-action-row>
       </mat-expansion-panel>
 

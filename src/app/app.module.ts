@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '@env/environment';
@@ -14,7 +15,6 @@ import { HomeComponent } from './home/home.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { CardPersonComponent } from './card-person/card-person.component';
 
-// indev
 import { AuthModule } from './auth/auth.module';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { UserDisplayComponent } from './user-display/user-display.component';
@@ -35,6 +35,7 @@ import { RecipeBrowserComponent } from './recipe-browser/recipe-browser.componen
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     AppRoutingModule,
     MaterialAppModule,
     AuthModule,
