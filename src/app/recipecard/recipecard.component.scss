@@ -1,0 +1,19 @@
+.example-card {
+  max-width: inherit;
+  margin   : 1em;
+}
+
+.example-header-image {
+  //background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-headers-align .mat-expansion-panel-header-description,
+.example-headers-align .mat-expansion-panel-header-title {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items    : center;
+}
