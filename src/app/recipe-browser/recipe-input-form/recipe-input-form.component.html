@@ -1,0 +1,183 @@
+<mat-card class="recipeInputForm">
+  <mat-card-header>
+    <mat-card-title>
+      Add a new recipe to our database
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      Fill out the form below
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Form goes here -->
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <!-- we will place our fields here -->
+
+      <!-- title -->
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" formControlName="title">
+        <!--display error message if name is not valid-->
+        <small *ngIf="!myForm.controls.title.valid" class="text-danger">
+          Title is required (minimum 5 characters).
+        </small>
+      </div>
+
+      <!-- author -->
+      <div class="form-group">
+        <label>Author</label>
+        <input type="text" formControlName="author">
+        <!--display error message if author is not valid-->
+        <small *ngIf="!myForm.controls.author.valid" class="text-danger">
+          Author is required.
+        </small>
+      </div>
+
+      <!-- url -->
+      <div class="form-group">
+        <label>URL</label>
+        <input type="text" formControlName="url">
+        <!--display error message if url is not valid-->
+        <small *ngIf="!myForm.controls.url.valid" class="text-danger">
+          Invalid url.
+        </small>
+      </div>
+
+      <!-- rating -->
+      <div class="form-group">
+        <label>Rating</label>
+        <input type="text" formControlName="rating">
+        <!--display error message if rating is not valid-->
+        <small *ngIf="!myForm.controls.rating.valid" class="text-danger">
+          Rating must be between 1 and 10
+        </small>
+      </div>
+
+      <!-- effort -->
+      <div class="form-group">
+        <label>Difficulty</label>
+        <input type="text" formControlName="effort">
+        <!--display error message if effort is not valid-->
+        <small *ngIf="!myForm.controls.effort.valid" class="text-danger">
+          Effort must be between 1 and 10
+        </small>
+      </div>
+
+      <!-- prepTime -->
+      <div class="form-group">
+        <label>Time to prep</label>
+        <input type="text" formControlName="prepTime">
+        <!--display error message if prepTime is not valid-->
+        <small *ngIf="!myForm.controls.prepTime.valid" class="text-danger">
+          Cannot be a negative number.
+        </small>
+      </div>
+
+      <!-- cookTime -->
+      <div class="form-group">
+        <label>Cooking time</label>
+        <input type="text" formControlName="cookTime">
+        <!--display error message if cookTime is not valid-->
+        <small *ngIf="!myForm.controls.cookTime.valid" class="text-danger">
+          Cannot be a negative number.
+        </small>
+      </div>
+
+      <!-- list of utensils -->
+      <div formArrayName="utensils">
+        <div *ngFor="let utensil of myForm.controls.utensils.controls; let i=index">
+          <!-- address header, show remove button when more than one address available -->
+          <div>
+            <span>Utensil {{i + 1}}</span>
+            <span (click)="addUtensil()">+</span>
+            <span class="pull-right" *ngIf="myForm.controls.utensils.controls.length > 1" (click)="removeUtensil(i)">X</span>
+          </div>
+
+          <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+          <div [formGroupName]="i">
+            <!--utensil name-->
+            <div>
+              <label>Name</label>
+              <input type="text" formControlName="name">
+              <!--display error message if utensil is not valid-->
+              <small *ngIf="!myForm.controls.utensils.controls[i].controls.name.valid" class="text-danger">
+                Utensil name is required
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- list of ingredients -->
+      <div formArrayName="ingredients">
+        <div *ngFor="let address of myForm.controls.ingredients.controls; let i=index">
+          <!-- address header, show remove button when more than one address available -->
+          <div>
+            <span>Ingredient {{i + 1}}</span>
+            <span (click)="addIngredient()">+</span>
+            <span class="pull-right" *ngIf="myForm.controls.ingredients.controls.length > 1" (click)="removeIngredient(i)">X</span>
+          </div>
+
+          <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+          <div [formGroupName]="i">
+            <!--name-->
+            <div>
+              <label>Name</label>
+              <input type="text" formControlName="name">
+              <!--display error message if ingredient name is not valid-->
+              <small *ngIf="!myForm.controls.ingredients.controls[i].controls.name.valid" class="text-danger">
+                Ingredient name is required
+              </small>
+            </div>
+            <!--amount-->
+            <div>
+              <label>Amount</label>
+              <input type="text" formControlName="amount">
+              <!--display error message if ingreditent amount is not valid-->
+              <small [hidden]="myForm.controls.ingredients.controls[i].controls.amount.valid" class="text-danger">
+                Ingredient amount is required
+              </small>
+            </div>
+            <!--measurement-->
+            <div>
+              <label>Measuring utensil</label>
+              <input type="text" formControlName="measurement">
+              <!--display error message if ingredient measurement is not valid-->
+              <small *ngIf="!myForm.controls.ingredients.controls[i].controls.measurement.valid" class="text-danger">
+                Measuring device used for ingredient is required.
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- list of steps -->
+      <div formArrayName="steps">
+        <div *ngFor="let address of myForm.controls.steps.controls; let i=index">
+          <!-- address header, show remove button when more than one address available -->
+          <div>
+            <span>Step {{i + 1}}</span>
+            <span (click)="addStep()">+</span>
+            <span class="pull-right" *ngIf="myForm.controls.steps.controls.length > 1" (click)="removeStep(i)">X</span>
+          </div>
+
+          <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+          <div [formGroupName]="i">
+            <!--step-->
+            <div>
+              <label>Step instructions</label>
+              <input type="text" formControlName="instructions">
+              <!--display error message if step is not valid-->
+              <small *ngIf="!myForm.controls.steps.controls[i].controls.instructions.valid" class="text-danger">
+                Step must be filled out or deleted
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,5 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-//import * as mockdata from './demorecipe.json';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { RecipeInputFormComponent } from './recipe-input-form/recipe-input-form.component';
+import { Ingredient } from '../recipecard/ingredient';
+
+interface Recipe {
+  title: string;
+  author: string;
+  url: string;
+  rating: string;
+  effort: number;
+  prepTime: number;
+  cookTime: number;
+  utensils: [string];
+  ingredients: [Ingredient];
+  steps: [string];
+}
 
 const mockdata = {
   "title": "Egg Drop Soup",
@@ -16,51 +34,52 @@ const mockdata = {
     "bowl",
     "cup"
   ],
-  "ingredients": [{
-    "name": "Water",
-    "amount": "2",
-    "measurement": "cups"
-  },
-  {
-    "name": "Chicken stock",
-    "amount": "2",
-    "measurement": "packets"
-  },
-  {
-    "name": "Soya sauce",
-    "amount": "1",
-    "measurement": "teaspoon"
-  },
-  {
-    "name": "Sesame oil",
-    "amount": "2",
-    "measurement": "teaspoon"
-  },
-  {
-    "name": "Corn starch",
-    "amount": "1.5",
-    "measurement": "tablespoons"
-  },
-  {
-    "name": "Egg",
-    "amount": "1",
-    "measurement": "beaten"
-  },
-  {
-    "name": "Green onion",
-    "amount": "1",
-    "measurement": "sprig"
-  },
-  {
-    "name": "Salt",
-    "amount": "1",
-    "measurement": "teaspoon"
-  },
-  {
-    "name": "Pepper",
-    "amount": "1",
-    "measurement": "teaspoon"
-  }
+  "ingredients": [
+    {
+      "name": "Water",
+      "amount": "2",
+      "measurement": "cups"
+    },
+    {
+      "name": "Chicken stock",
+      "amount": "2",
+      "measurement": "packets"
+    },
+    {
+      "name": "Soya sauce",
+      "amount": "1",
+      "measurement": "teaspoon"
+    },
+    {
+      "name": "Sesame oil",
+      "amount": "2",
+      "measurement": "teaspoon"
+    },
+    {
+      "name": "Corn starch",
+      "amount": "1.5",
+      "measurement": "tablespoons"
+    },
+    {
+      "name": "Egg",
+      "amount": "1",
+      "measurement": "beaten"
+    },
+    {
+      "name": "Green onion",
+      "amount": "1",
+      "measurement": "sprig"
+    },
+    {
+      "name": "Salt",
+      "amount": "1",
+      "measurement": "teaspoon"
+    },
+    {
+      "name": "Pepper",
+      "amount": "1",
+      "measurement": "teaspoon"
+    }
   ],
   "steps": [
     "Bring water to a boil",
@@ -83,8 +102,12 @@ const mockdata = {
 })
 export class RecipeBrowserComponent implements OnInit {
   data = mockdata;
-  constructor() { }
+  recipesCol: AngularFirestoreCollection<Recipe>;
+  recipes: Observable<Recipe[]>;
+  constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
+    this.recipesCol = this.afs.collection('recipes');
+    this.recipes = this.recipesCol.valueChanges();
   }
 }

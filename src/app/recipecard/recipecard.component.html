@@ -26,7 +26,7 @@
         </mat-expansion-panel-header>
 
         <mat-list class="utensilList" *ngFor="let utensil of recipe.utensils">
-          <li>{{ utensil | titlecase }}</li>
+          <li>{{ utensil.name | titlecase }}</li>
         </mat-list>
 
         <mat-action-row>
@@ -79,7 +79,7 @@
 
         <mat-list class="stepList" style="list-style: none;" *ngFor="let step of recipe.steps; let i=index">
           <li>
-            {{i+1}}. {{ step }}
+            {{i+1}}. {{ step.instructions }}
           </li>
         </mat-list>
 
