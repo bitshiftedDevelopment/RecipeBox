@@ -86,7 +86,8 @@
 
       <!-- list of utensils -->
       <div formArrayName="utensils">
-        <div *ngFor="let utensil of myForm.controls.utensils.controls; let i=index">
+        <!-- <div *ngFor="let utensil of myForm.controls.utensils.controls; let i=index"> -->
+        <div *ngFor="let utensil of myForm.get('utensils').value; let i=index">
           <!-- address header, show remove button when more than one address available -->
           <div>
             <span>Utensil {{i + 1}}</span>
