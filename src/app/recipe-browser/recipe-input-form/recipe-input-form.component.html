@@ -86,7 +86,7 @@
 
       <!-- list of utensils -->
       <div formArrayName="utensils">
-        <div *ngFor="let utensil of myForm.get('utensils').value; let i=index">
+        <div *ngFor="let utensil of myForm.get('utensils')['controls']; let i=index">
           <!-- utensils header, show remove button when more than one address available -->
           <div>
             <span>Utensil {{i + 1}}</span>
@@ -111,7 +111,7 @@
 
       <!-- list of ingredients -->
       <div formArrayName="ingredients">
-        <div *ngFor="let address of myForm.get('ingredients').value; let i=index">
+        <div *ngFor="let address of myForm.get('ingredients')['controls']; let i=index">
           <!-- address header, show remove button when more than one address available -->
           <div>
             <span>Ingredient {{i + 1}}</span>
@@ -154,7 +154,7 @@
 
       <!-- list of steps -->
       <div formArrayName="steps">
-        <div *ngFor="let address of myForm.get('steps').value; let i=index">
+        <div *ngFor="let address of myForm.get('steps')['controls']; let i=index">
           <!-- address header, show remove button when more than one address available -->
           <div>
             <span>Step {{i + 1}}</span>
