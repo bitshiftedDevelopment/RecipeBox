@@ -20,3 +20,4 @@ Contains the components that make up the recipe browser as well as the upload fo
 -   Recipe tagging
 -   Category views
 -   Searching
+-   Recipe inspector
