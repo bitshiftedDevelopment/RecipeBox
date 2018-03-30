@@ -7,6 +7,7 @@ export class Recipe {
   @Input() utensils: [string];
   @Input() steps: [string];
   @Input() effort: string;
+  @Input() rating: string;
   @Input() prepTime: string;
   @Input() cookTime: string;
 }
