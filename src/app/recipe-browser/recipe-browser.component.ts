@@ -101,7 +101,7 @@ const mockdata = {
   styleUrls: ['./recipe-browser.component.scss']
 })
 export class RecipeBrowserComponent implements OnInit {
-  data = mockdata;
+  data = mockdata; //TODO remove mockdata and clean up file
   recipesCol: AngularFirestoreCollection<Recipe>;
   recipes: Observable<Recipe[]>;
   constructor(private afs: AngularFirestore) { }
