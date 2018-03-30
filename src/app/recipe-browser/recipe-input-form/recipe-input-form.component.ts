@@ -4,16 +4,17 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Recipe, Ingredient } from '../recipe.interface';
+
+interface model {
+  value: { Recipe };
+}
+
 @Component({
   moduleId: module.id,
   selector: 'recipe-input-form',
   templateUrl: './recipe-input-form.component.html',
   styleUrls: ['./recipe-input-form.component.scss']
 })
-
-interface model {
-  value: object;
-}
 
 export class RecipeInputFormComponent implements OnInit {
   recipesCol: AngularFirestoreCollection<Recipe>;
