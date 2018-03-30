@@ -61,8 +61,10 @@ export class RecipeInputFormComponent implements OnInit {
   save(model) {
     // call API to save recipe
     //console.log(model);
-    this.afs.collection('recipes').add(model.value);
-    //this.afs.collection('posts').add({'title': this.title, 'content': this.content});
+    if (this.myForm.valid) {
+      this.afs.collection('recipes').add(model.value);
+      this.myForm.reset();
+    }
   }
 
   // EXAMPLE - REMOVE ME
