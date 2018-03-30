@@ -23,6 +23,7 @@ import { UserDisplayComponent } from './user-display/user-display.component';
 import { RecipecardComponent } from './recipecard/recipecard.component';
 import { RecipeBrowserComponent } from './recipe-browser/recipe-browser.component';
 import { RecipeInputFormComponent } from './recipe-browser/recipe-input-form/recipe-input-form.component';
+import { RecipeInspectorComponent } from './recipe-browser/recipe-inspector/recipe-inspector.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { RecipeInputFormComponent } from './recipe-browser/recipe-input-form/rec
     UserDisplayComponent,
     RecipecardComponent,
     RecipeBrowserComponent,
-    RecipeInputFormComponent
+    RecipeInputFormComponent,
+    RecipeInspectorComponent
   ],
   imports: [
     BrowserModule,

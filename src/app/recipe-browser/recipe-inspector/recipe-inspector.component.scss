@@ -1,0 +1,92 @@
+.recipe-detailCard {
+  max-width : inherit;
+  max-height: inherit;
+  margin    : 1em;
+}
+
+.headerBar {
+  margin         : 0.25em;
+  display        : flex;
+  flex           : 1 1 auto;
+  flex-direction : row;
+  justify-content: space-between;
+  //max-height      : 3em;
+  align-content  : center;
+}
+
+.indexTab {
+  //padding         : 0.5em;
+  margin        : 0.25em;
+  width         : auto;
+  height        : inherit;
+  padding-top   : 0.25em;
+  padding-bottom: 0.5em;
+}
+
+.ratingDisplay {
+  display       : flex;
+  flex-direction: row;
+  padding-right : 1em;
+  width         : auto;
+  height        : inherit;
+}
+
+.effortDisplay {
+  display       : flex;
+  flex-direction: row;
+  padding-right : 1em;
+  width         : auto;
+  height        : inherit;
+}
+
+.bodyContent {
+  display       : flex;
+  flex          : auto;
+  flex-direction: row;
+}
+
+.leftMargin {
+  display       : flex;
+  flex          : 1 1 auto;
+  flex-direction: column;
+  text-align    : left;
+  padding       : 1em;
+}
+
+.ingredientList {
+  list-style  : none;
+  padding-left: 0.5em;
+}
+
+.instructions {
+  display       : flex;
+  flex          : 1 1 auto;
+  flex-direction: column;
+  //text-align    : right;
+  padding       : 1em;
+}
+
+.instructionsHeader {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.timeDisplay {
+  display       : flex;
+  flex-direction: column;
+  text-align    : right;
+  // flex-basis    : auto;
+  width         : auto;
+  height        : inherit;
+}
+
+.stepList {
+  padding-left: 0.5em;
+}
+
+.spacer {
+  /* This fills the remaining space, by using flexbox.
+       Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
