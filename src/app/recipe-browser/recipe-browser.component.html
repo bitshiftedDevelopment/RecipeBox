@@ -1,1 +1,4 @@
-<recipecard [recipe]=data></recipecard>
+<!-- All recipes in database -->
+<ul *ngFor="let recipe of recipes | async">
+  <recipe-inspector [recipe]=recipe></recipe-inspector>
+</ul>

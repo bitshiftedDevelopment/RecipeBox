@@ -1,0 +1,157 @@
+<mat-card class="recipe-detailCard">
+  <mat-toolbar class="headerBar">
+    <mat-card-header class="indexTab">
+      <!--<div mat-card-avatar style="background-image: 'url({details.avatarURL}})'">-->
+      <!--<img src={{details.avatarURL}} mat-card-avatar class="example-header-image" />-->
+      <!--</div>-->
+      <mat-card-title>
+        <h2><strong>{{ recipe.title }}</strong></h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <em>Uploaded by {{ recipe.author }}</em>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="effortDisplay">
+      <small>
+        <!--ngSwitch to produce string tags from numeric value stored in string-->
+        <div [ngSwitch]="recipe.effort">
+          <div *ngSwitchCase="1">Effort: Idiot proof</div>
+          <div *ngSwitchCase="2">Effort: Very easy</div>
+          <div *ngSwitchCase="3">Effort: Easy</div>
+          <div *ngSwitchCase="4">Effort: A little complicated</div>
+          <div *ngSwitchCase="5">Effort: Medium</div>
+          <div *ngSwitchCase="6">Effort: A little tough</div>
+          <div *ngSwitchCase="7">Effort: Kind of tricky</div>
+          <div *ngSwitchCase="8">Effort: Sort of hard</div>
+          <div *ngSwitchCase="9">Effort: Hard</div>
+          <div *ngSwitchCase="10">Effort: Very Hard</div>
+          <div *ngSwitchDefault>ERROR ([{{recipe.title}}].effort.invalid)</div>
+        </div>
+      </small>
+    </div>
+
+    <div class="ratingDisplay">
+      <!-- Rating: {{recipe.rating}}/10 -->
+      <small>
+        Rating:
+        <!--ngSwitch to produce a visual star rating from numeric value stored in string-->
+        <div [ngSwitch]="recipe.rating">
+          <div *ngSwitchCase="1">
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="2">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="3">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="4">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="5">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="6">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="7">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="8">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div *ngSwitchCase="9">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+          </div>
+          <div *ngSwitchCase="10">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div *ngSwitchDefault>ERROR ([{{recipe.title}}].rating.invalid)</div>
+        </div>
+      </small>
+    </div>
+
+  </mat-toolbar>
+
+  <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+
+  <mat-card-content class="bodyContent">
+
+    <div class="leftMargin">
+      <h3>Ingredient List</h3>
+      <mat-list class="ingredientList" *ngFor="let ingredient of recipe.ingredients">
+        <li>
+          <!-- Needs more formatting, ugly as sin -->
+          {{ ingredient.amount }} {{ ingredient.measurement | lowercase }} {{ ingredient.name | lowercase }}
+        </li>
+      </mat-list>
+    </div>
+
+    <div class="instructions">
+
+      <div class="instructionsHeader">
+        <h3>Instructions</h3>
+        <div class="timeDisplay">
+          <small>Prep Time: {{recipe.prepTime}} minutes</small>
+          <small>Cook Time: {{recipe.cookTime}} minutes</small>
+        </div>
+      </div>
+
+      <mat-list class="stepList" style="list-style: none;" *ngFor="let step of recipe.steps; let i=index">
+        <li>
+          {{i+1}}. {{ step.instructions }}
+        </li>
+      </mat-list>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>
+      <mat-icon>email</mat-icon>
+    </button>
+    <!--<span class="personActions" *ngFor="let action of cardActions">
+      <button mat-button>{{ action }}</button>
+    </span>-->
+  </mat-card-actions>
+</mat-card>

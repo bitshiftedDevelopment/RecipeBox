@@ -1,1 +1,19 @@
 /* Site-wide styling goes in here */
+.example-container {
+  flex: 1 1 auto;
+}
+
+.sidenav {
+  flex-direction: column;
+}
+
+.pageContent {
+  //min-height    : 164px; // should be replaced by flex
+  flex          : 1 1 auto;
+  flex-direction: column;
+}
+
+.navlink {
+  text-decoration: none;
+  color          : inherit;
+}
