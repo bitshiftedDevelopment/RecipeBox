@@ -1,8 +1,3 @@
-<!--<recipecard [recipe]=data></recipecard>-->
-
-<!-- new recipe input form -->
-<recipe-input-form></recipe-input-form>
-
 <!-- All recipes in database -->
 <ul *ngFor="let recipe of recipes | async">
   <recipecard [recipe]=recipe></recipecard>

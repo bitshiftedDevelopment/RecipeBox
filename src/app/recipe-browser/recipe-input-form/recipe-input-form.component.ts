@@ -67,15 +67,6 @@ export class RecipeInputFormComponent implements OnInit {
     }
   }
 
-  // EXAMPLE - REMOVE ME
-  initAddress() {
-    // initialize our utensil
-    return this.fb.group({
-      street: ['', Validators.required],
-      postcode: ['']
-    });
-  }
-
   initUtensil() {
     // initialize our utensil
     return this.fb.group({
