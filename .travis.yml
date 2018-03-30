@@ -3,7 +3,11 @@ language: node_js
 node_js:
    - node # will use latest node
 
+<<<<<<< HEAD
 cache: yarn # notfully set up yet, see http://docs.travis-ci.com/user/caching/ for additional configuration
+=======
+cache: yarn
+>>>>>>> c0678b7c1f3b9a31cef1b9c9932d9c76702c3a2a
 
 before_script: # commands to run before the build step
    - yarn add @angular/cli
