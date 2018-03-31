@@ -1,0 +1,11 @@
+.ratingDisplay {
+  display       : flex;
+  flex-direction: row;
+  padding-right : 1em;
+  width         : auto;
+  height        : inherit;
+}
+
+.danger {
+  color: red;
+}

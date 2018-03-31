@@ -1,7 +1,7 @@
 # RecipeBox
 
-<a href="#" id="status-image-popup" title="Latest push build on recipeDB branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-767="767">
-  <img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=recipeDB" alt="build:passed">
+<a href="#" id="status-image-popup" title="Latest push build on unstable branch: passed" name="status-images" class="open-popup" data-ember-action="" data-ember-action-767="767">
+  <img src="https://travis-ci.org/bitshiftedDevelopment/RecipeBox.svg?branch=unstable" alt="build:passed">
 </a>
 
 <em>Digital kitchen assistant</em>
