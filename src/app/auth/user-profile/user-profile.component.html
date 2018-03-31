@@ -5,7 +5,7 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest>
-  <h3>Howdy, GUEST</h3>
+  <h3>Greetings, GUEST</h3>
   <p>Login to get started...</p>
   <button (click)="auth.googleLogin()">
         <i class="fa fa-google"></i> Connect Google
@@ -16,7 +16,11 @@
 <!-- User logged in -->
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
-    <h3>Howdy, {{ user.displayName }}</h3>
+    <h3>Welcome back, {{ user.displayName }}</h3>
+    <div class="roleDisplay">
+      <small>User rights:</small>
+      <small>UNDEFINED</small>
+    </div>
     <img [src]="user.photoURL">
     <p>UID: {{ user.uid }}</p>
     <p>Favorite Color: {{ user?.favoriteColor }} </p>
