@@ -11,13 +11,14 @@ import 'rxjs/add/operator/switchMap'
 /* The interface declares the properties of the custom user object.
  * Feel free to add any custom data you want here to extend the basic Firebase auth data.
  */
-interface User {
-  uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-  favoriteColor?: string;
-}
+import { User } from './user';
+// interface User {
+//   uid: string;
+//   email: string;
+//   photoURL?: string;
+//   displayName?: string;
+//   favoriteColor?: string;
+// }
 
 @Injectable()
 export class AuthService {
@@ -72,14 +73,53 @@ export class AuthService {
       email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
-      favoriteColor: user.favoriteColor || 'unset'
+      favoriteColor: user.favoriteColor || 'unset',
+      roles: user.roles || {
+        subscriber: true,
+        editor: false,
+        admin: false
+      }
     }
     return userRef.set(data, { merge: true })
   }
 
+  /* signOut()
+   * signs out the authenticated user and returns them home
+   */
   signOut() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/home']); //TODO change route once home component is ready
+      this.router.navigate(['/home']);
     });
+  }
+
+  // ROLE FUNCTIONS
+  // Add functions here for additional user priviledges
+  // Note that creation is handled within Firestore security
+
+  canRead(user: User): boolean {
+    const allowed = ['admin', 'editor', 'subscriber']
+    return this.checkAuthorization(user, allowed)
+  }
+  canEdit(user: User): boolean {
+    const allowed = ['admin', 'editor']
+    return this.checkAuthorization(user, allowed)
+  }
+  canDelete(user: User): boolean {
+    const allowed = ['admin']
+    return this.checkAuthorization(user, allowed)
+  }
+  /* checkAuthorization(user,roles[])
+   * compares the user's role against an array of
+   * allowed roles to see if they are authorized for
+   * the functions above
+   */
+  private checkAuthorization(user: User, allowedRoles: string[]): boolean {
+    if (!user) return false
+    for (const role of allowedRoles) {
+      if (user.roles[role]) {
+        return true
+      }
+    }
+    return false
   }
 }

@@ -15,6 +15,9 @@ import { SidenavService } from './sidenav.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopnavComponent } from './topnav/topnav.component';
+import { StarRatingModule } from './material-decorators/star-rating/star-rating.module';
+
+//REMOVEME
 import { CardPersonComponent } from './card-person/card-person.component';
 
 import { AuthModule } from './auth/auth.module';
@@ -24,8 +27,9 @@ import { RecipecardComponent } from './recipecard/recipecard.component';
 import { RecipeBrowserComponent } from './recipe-browser/recipe-browser.component';
 import { RecipeInputFormComponent } from './recipe-browser/recipe-input-form/recipe-input-form.component';
 import { RecipeInspectorComponent } from './recipe-browser/recipe-inspector/recipe-inspector.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
-import { StarRatingModule } from './material-decorators/star-rating/star-rating.module';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { StarRatingModule } from './material-decorators/star-rating/star-rating.
     RecipecardComponent,
     RecipeBrowserComponent,
     RecipeInputFormComponent,
-    RecipeInspectorComponent
+    RecipeInspectorComponent,
+    LoginpageComponent
   ],
   imports: [
     BrowserModule,
