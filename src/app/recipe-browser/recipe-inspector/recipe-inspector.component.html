@@ -36,79 +36,7 @@
       <small>
         Rating:
         <!--ngSwitch to produce a visual star rating from numeric value stored in string-->
-        <div [ngSwitch]="recipe.rating">
-          <div *ngSwitchCase="1">
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="2">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="3">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="4">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="5">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="6">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="7">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="8">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <div *ngSwitchCase="9">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-half-o"></i>
-          </div>
-          <div *ngSwitchCase="10">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div *ngSwitchDefault>ERROR ([{{recipe.title}}].rating.invalid)</div>
-        </div>
+        <star-rating [rating]="recipe.rating"></star-rating>
       </small>
     </div>
 
@@ -132,6 +60,8 @@
 
       <div class="instructionsHeader">
         <h3>Instructions</h3>
+        <div class="spacer"></div>
+        <i class="material-icons">access_time</i>
         <div class="timeDisplay">
           <small>Prep Time: {{recipe.prepTime}} minutes</small>
           <small>Cook Time: {{recipe.cookTime}} minutes</small>

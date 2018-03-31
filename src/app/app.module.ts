@@ -25,6 +25,8 @@ import { RecipeBrowserComponent } from './recipe-browser/recipe-browser.componen
 import { RecipeInputFormComponent } from './recipe-browser/recipe-input-form/recipe-input-form.component';
 import { RecipeInspectorComponent } from './recipe-browser/recipe-inspector/recipe-inspector.component';
 
+import { StarRatingModule } from './material-decorators/star-rating/star-rating.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { RecipeInspectorComponent } from './recipe-browser/recipe-inspector/reci
     AuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StarRatingModule
   ],
   providers: [SidenavService],
   bootstrap: [AppComponent]
